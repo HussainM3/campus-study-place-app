@@ -1,4 +1,4 @@
-export default function Details({ place, goTo, onMarkVisited }) {
+export default function Details({ place, goTo, onMarkVisited, onMarkFavorite }) {
   if (!place) return <p>No place selected</p>;
 
   return (
@@ -12,7 +12,7 @@ export default function Details({ place, goTo, onMarkVisited }) {
       <p>Seating Type: {place.seating}</p>
       <p>{place.nearFood ? "🍔 Near Food" : "🚫 Not near food"}</p>
 
-      <button onClick={() => goTo("favorites")}>Add to Favourites</button>
+      <button onClick={onMarkFavorite}>Add to Favourites</button>
       <button onClick={onMarkVisited}>Mark as Visited</button>
       <button onClick={() => goTo("review")}>Leave Review</button>
     </div>

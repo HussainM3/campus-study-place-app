@@ -28,6 +28,11 @@ export default function App() {
     setShowReviewPrompt(true);
   };
 
+  const markAsFavorite = () => {
+    setScreen("favorites");
+    setShowReviewPrompt(true);
+  }
+
   return (
     <div
       style={{
@@ -48,7 +53,7 @@ export default function App() {
 
       {screen === "search" && <Search goTo={goTo} />}
       {screen === "details" && (
-        <Details place={selectedPlace} goTo={goTo} onMarkVisited={markAsVisited} />
+        <Details place={selectedPlace} goTo={goTo} onMarkVisited={markAsVisited} onMarkFavorite={markAsFavorite} />
       )}
       {screen === "review" && <Review place={selectedPlace} goTo={goTo} />}
       {screen === "favorites" && <Favorites goTo={goTo} />}
