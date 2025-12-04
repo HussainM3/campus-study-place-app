@@ -12,6 +12,8 @@ export default function App() {
   const [screen, setScreen] = useState("home");
   const [selectedPlace, setSelectedPlace] = useState(null);
 
+  const [showReviewPrompt, setShowReviewPrompt] = useState(false);
+
   const goTo = (screenName) => {
     setScreen(screenName);
   };
@@ -19,6 +21,11 @@ export default function App() {
   const onSelectPlace = (place) => {
     setSelectedPlace(place);
     setScreen("details");
+  };
+
+  const markAsVisited = () => {
+    setScreen("visited");
+    setShowReviewPrompt(true);
   };
 
   return (
@@ -41,14 +48,27 @@ export default function App() {
 
       {screen === "search" && <Search goTo={goTo} />}
       {screen === "details" && (
-        <Details place={selectedPlace} goTo={goTo} />
+        <Details place={selectedPlace} goTo={goTo} onMarkVisited={markAsVisited} />
       )}
       {screen === "review" && <Review place={selectedPlace} goTo={goTo} />}
       {screen === "favorites" && <Favorites goTo={goTo} />}
       {screen === "visited" && <Visited goTo={goTo} />}
 
-      {/* Popup will overlay on top later */}
-      <ReviewPrompt />
+      {showReviewPrompt && (
+        <ReviewPrompt
+          onClose={() => setShowReviewPrompt(false)}
+          onReview={() => {
+            setShowReviewPrompt(false);
+            setScreen("review");
+          }}
+        />
+      )}
+
+        <button onClick={() => goTo("home")}>Home</button>
+        <button onClick={() => goTo("search")}>Search</button>
+        <button onClick={() => goTo("favorites")}>Favourites</button>
+        <button onClick={() => goTo("visited")}>Visited</button>
+
     </div>
   );
 }

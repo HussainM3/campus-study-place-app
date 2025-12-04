@@ -1,6 +1,6 @@
 import places from "../data/places";
 
-export default function Home({ onSelectPlace, goTo }) {
+export default function Home({ onSelectPlace }) {
   return (
     <div>
       <h2>Study Places</h2>
@@ -42,10 +42,7 @@ export default function Home({ onSelectPlace, goTo }) {
           background: "white",
         }}
       >
-        <button onClick={() => goTo("home")}>Home</button>
-        <button onClick={() => goTo("search")}>Search</button>
-        <button onClick={() => goTo("favorites")}>Favourites</button>
-        <button onClick={() => goTo("visited")}>Visited</button>
+
       </div>
     </div>
     );
