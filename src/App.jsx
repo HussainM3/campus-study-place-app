@@ -69,8 +69,8 @@ export default function App() {
         <Details place={selectedPlace} goTo={goTo} onMarkVisited={markAsVisited} onMarkFavorite={markAsFavorite} />
       )}
       {screen === "review" && <Review place={selectedPlace} goTo={goTo} />}
-      {screen === "favorites" && <Favorites goTo={goTo} />}
-      {screen === "visited" && <Visited goTo={goTo} />}
+      {screen === "favorites" && <Favorites goTo={goTo} onSelectPlace={onSelectPlace} />}
+      {screen === "visited" && <Visited goTo={goTo} onSelectPlace={onSelectPlace}/>}
 
       {showReviewPrompt && (
         <ReviewPrompt

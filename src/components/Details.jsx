@@ -3,7 +3,7 @@ export default function Details({ place, goTo, onMarkVisited, onMarkFavorite }) 
 
   return (
     <div>
-      <button onClick={() => goTo("home")}>⬅ Back</button>
+      <button onClick={() => goTo("home")}>⬅ Home</button>
 
       <h2>{place.name}</h2>
       <p>{place.description}</p>

@@ -68,7 +68,7 @@ export default function Search({ goTo }) {
       </div>
 
       <div>
-        <button className="back-button" onClick={() => goTo("home")}>⬅ Back</button>
+        <button className="back-button" onClick={() => goTo("home")}>⬅ Home</button>
       </div>
     </div>
   );

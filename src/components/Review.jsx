@@ -63,7 +63,7 @@ export default function Review({ place, goTo }) {
         />
 
         <button type="submit" className="submit-button">Submit review</button>
-        <button className="back-button" onClick={() => goTo("home")}>⬅ Back</button>
+        <button className="back-button" onClick={() => goTo("home")}>⬅ Home</button>
       </form>
     </div>
   );

@@ -13,19 +13,22 @@ export default function ReviewPrompt({ onClose, onReview }) {
         background: "white",
         padding: "20px",
         borderRadius: "12px",
-        width: "300px"
+        width: "280px",
+        textAlign: "center"
       }}>
-        <h3>Leave a quick review?</h3>
+        <h3>Would you like to leave a review?</h3>
 
-        <div style={{ fontSize: "24px", marginBottom: "10px" }}>
-           ☆ ☆ ☆ ☆ ☆
-        </div>
+        <p style={{ margin: "15px 0" }}>
+          Sharing your experience helps other students find the best study spots.
+        </p>
 
-        <textarea placeholder="Optional comment..." />
-
-        <div style={{ marginTop: "10px" }}>
-          <button onClick={onReview}>Yes</button>
-          <button onClick={onClose}>Later</button>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <button onClick={onReview} style={{ flex: 1, marginRight: "8px" }}>
+            Leave a Review
+          </button>
+          <button onClick={onClose} style={{ flex: 1, marginLeft: "8px" }}>
+            Later
+          </button>
         </div>
       </div>
     </div>

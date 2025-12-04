@@ -1,4 +1,4 @@
-export default function Visited({ goTo }) {
+export default function Visited({ goTo, onSelectPlace }) {
   const visitedPlaces = [
     {
       id: 1,
@@ -41,18 +41,14 @@ export default function Visited({ goTo }) {
           {visitedPlaces.map((place) => (
             <div>
               <h2>{place.name}</h2>
-              <p>{place.description}</p>
-
-              <p>Noise Level: {place.noise}</p>
-              <p>Seating Type: {place.seating}</p>
-              <p>{place.nearFood ? "🍔 Near Food" : "🚫 Not near food"}</p>
+              <button onClick={() => onSelectPlace(place)}>See Details</button>
             </div>
           ))}
         </ul>
       )}
 
       <div style={{ marginTop: "20px" }}>
-        <button onClick={() => goTo("home")}>⬅ Back</button>
+        <button onClick={() => goTo("home")}>⬅ Home</button>
       </div>
     </div>
   );
