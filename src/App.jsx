@@ -16,6 +16,10 @@ export default function App() {
 
   const goTo = (screenName) => {
     setScreen(screenName);
+
+    if (screenName !== "details" && screenName !== "review") {
+      setSelectedPlace(null);
+    }
   };
 
   const onSelectPlace = (place) => {
@@ -73,6 +77,7 @@ export default function App() {
         <button onClick={() => goTo("search")}>Search</button>
         <button onClick={() => goTo("favorites")}>Favourites</button>
         <button onClick={() => goTo("visited")}>Visited</button>
+        <button onClick={() => goTo("review")}>Leave a review</button>
 
     </div>
   );
