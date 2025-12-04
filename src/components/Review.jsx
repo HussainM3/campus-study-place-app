@@ -6,6 +6,7 @@ export default function Review({ place, goTo }) {
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [submitted, setSubmitted] = useState(false); // new state
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +19,10 @@ export default function Review({ place, goTo }) {
 
     console.log("Review submitted:", reviewData);
 
-    // Reset
+    // Show confirmation
+    setSubmitted(true);
+
+    // Reset fields
     setRating(0);
     setComment("");
   };
@@ -46,8 +50,7 @@ export default function Review({ place, goTo }) {
           <option value={5}>5 - Excellent</option>
         </select>
 
-        <br></br>
-        <br></br>
+        <br /><br />
 
         <label>Your review</label>
         <textarea
@@ -62,8 +65,14 @@ export default function Review({ place, goTo }) {
           required
         />
 
-        <button type="submit" className="submit-button">Submit review</button>
-        <button className="back-button" onClick={() => goTo("home")}>⬅ Home</button>
+        <div style={{ marginTop: "10px" }}>
+          <button type="submit" className="submit-button">Submit review</button>
+          <button type="button" className="back-button" onClick={() => goTo("home")}>⬅ Home</button>
+        </div>
+
+        {submitted && (
+          <p style={{ color: "green", marginTop: "10px" }}>✅ Review submitted!</p>
+        )}
       </form>
     </div>
   );
