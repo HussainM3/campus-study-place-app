@@ -1,3 +1,5 @@
+import './App.css';
+
 import { useState } from "react";
 
 import Home from "./components/Home.jsx";
@@ -40,16 +42,24 @@ export default function App() {
   return (
     <div
       style={{
-        maxWidth: "390px",
-        margin: "0 auto",
-        minHeight: "100vh",
-        border: "1px solid #ddd",
-        padding: "20px",
-        paddingBottom: "80px", // space for bottom nav
-        fontFamily: "Arial",
+        width: "390px",
+        height: "844px", // iPhone-ish height
+        background: "white",
+        borderRadius: "28px",
+        boxShadow: "0 0 20px rgba(0,0,0,0.15)",
+        padding: "16px 12px 90px",
+        boxSizing: "border-box",
+        position: "relative",
+        overflowY: "auto",
+        fontFamily: "Arial, sans-serif"
       }}
     >
-      <h1>Campus Study Spaces</h1>
+
+      <h1 style={{
+        textAlign: "center",
+        fontSize: "20px",
+        marginBottom: "16px",
+      }}>Campus Study Spaces</h1>
 
       {screen === "home" && (
         <Home onSelectPlace={onSelectPlace} goTo={goTo} />
@@ -73,11 +83,27 @@ export default function App() {
         />
       )}
 
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          borderTop: "1px solid #ccc",
+          background: "white",
+          display: "flex",
+          justifyContent: "space-around",
+          padding: "10px 0",
+          borderBottomLeftRadius: "28px",
+          borderBottomRightRadius: "28px",
+        }}
+      >
         <button onClick={() => goTo("home")}>Home</button>
         <button onClick={() => goTo("search")}>Search</button>
         <button onClick={() => goTo("favorites")}>Favourites</button>
         <button onClick={() => goTo("visited")}>Visited</button>
         <button onClick={() => goTo("review")}>Leave a review</button>
+      </div>
 
     </div>
   );
