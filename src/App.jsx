@@ -1,6 +1,5 @@
-import './App.css';
-
 import { useState } from "react";
+import './App.css';
 
 import Home from "./components/Home.jsx";
 import Search from "./components/Search.jsx";

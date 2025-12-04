@@ -1,6 +1,7 @@
 import { useState } from "react";
+import '../App.css';
 
-export default function Review({ place }) {
+export default function Review({ place, goTo }) {
   const isGeneralReview = !place;
 
   const [rating, setRating] = useState(0);
@@ -23,14 +24,14 @@ export default function Review({ place }) {
   };
 
   return (
-    <div>
+    <div className="page-container">
       <h2>
         {isGeneralReview
           ? "Leave a review below for a campus study space"
           : `Leave a review for ${place.name}`}
       </h2>
 
-      <form onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label>Rating (1–5)</label>
         <select
           value={rating}
@@ -45,8 +46,12 @@ export default function Review({ place }) {
           <option value={5}>5 - Excellent</option>
         </select>
 
+        <br></br>
+        <br></br>
+
         <label>Your review</label>
         <textarea
+          className="textarea-field"
           placeholder={
             isGeneralReview
               ? "Share your thoughts about a campus study space"
@@ -57,7 +62,8 @@ export default function Review({ place }) {
           required
         />
 
-        <button type="submit">Submit review</button>
+        <button type="submit" className="submit-button">Submit review</button>
+        <button className="back-button" onClick={() => goTo("home")}>⬅ Back</button>
       </form>
     </div>
   );
